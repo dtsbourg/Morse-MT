@@ -4,6 +4,32 @@
 ; 2013.06.28 A.Schmid mod. B0,B1,_B0,_B1 into xFxx
 ;			insert OUTEI
 ; 2013.07.02 A.Schmid typos fix (INCDEC)
+; 2014.05.25 D.Bourgeois & T.Besson add. custom macros
+
+; ==============
+;  custom macros
+; ==============
+; @0 << 2
+.macro	LSL_2
+	lsl	@0
+	lsl	@0
+.endmacro
+
+; @0 >> 2
+.macro	LSR_2
+	lsr	@0
+	lsr	@0
+.endmacro
+
+; @0 << 6
+.macro	LSL_6
+	lsl	@0
+	lsl	@0
+	lsl	@0
+	lsl	@0
+	lsl	@0
+	lsl	@0
+.endmacro
 
 ; ==============
 ; 	pointers
@@ -1460,6 +1486,7 @@ f1:	set
 	rol	@1
 	rol	@0
 	.endmacro
+	
 .macro	LSL2
 	lsl	@1
 	rol	@0

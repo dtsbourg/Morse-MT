@@ -1,0 +1,238 @@
+
+;========== Recherche lettre associée ========
+
+mov     c2,a2         ; rX contient le code de la lettre
+and     c2,0x40       ; Regarde si la lettre commence par un -
+brne    PC+76         ; Doit aller loin
+
+; " - "
+    mov     c2,a2
+    and     c2,0x30       ; Test pour savoir si la lettre est finie
+    brne    PC+4
+
+    PRINTF  LCD
+    .db "T",0
+    ret
+
+    mov     c2,a2
+    and     c2,0x10
+    brne    PC+28
+
+        ; " - - "
+        mov     c2,a2
+        and     c2,0x0c
+        brne    PC+4
+        
+        PRINTF  LCD
+        .db "M",0
+        ret
+
+        mov     c2,a2
+        and     c2,0x04
+        brne    PC+4
+
+            ; " - - - "
+            PRINTF  LCD
+            .db "O",0
+            ret
+
+            ; " - - ° "
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "G",0
+            ret
+
+                mov     c2,a2
+                and     c2,0x01
+                brne    PC+4
+
+                PRINTF  LCD
+                .db "Q",0
+                ret
+
+                PRINTF  LCD
+                .db "Z",0
+                ret
+
+        ; " - ° "
+
+        mov     c2,a2
+        and     c2,0x0c
+        brne    PC+4
+        
+        PRINTF  LCD
+        .db "N",0
+        ret
+
+        mov     c2,a2
+        and     c2,0x04
+        brne    PC+16
+
+            ; " - ° - "
+
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "K",0
+            ret
+
+                mov     c2,a2
+                and     c2,0x01
+                brne    PC+4
+
+                PRINTF  LCD
+                .db "Y",0
+                ret
+
+                PRINTF  LCD
+                .db "C",0
+                ret
+
+            ; " - ° ° "
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "D",0
+            ret
+
+                mov     c2,a2
+                and     c2,0x01
+                brne    PC+4
+
+                PRINTF  LCD
+                .db "X",0
+                ret
+
+                PRINTF  LCD
+                .db "B",0
+                ret
+
+
+
+
+
+; " ° "
+    mov     c2,a2
+    and     c2,0x30
+    brne    PC+4
+
+    PRINTF  LCD
+    .db "E",0
+    ret
+
+    mov     c2,a2
+    and     c2,0x10
+    brne    PC+34
+
+        ; " ° - "
+        mov     c2,a2
+        and     c2,0x0c
+        brne    PC+4
+        
+        PRINTF  LCD
+        .db "A",0
+        ret
+
+        mov     c2,a2
+        and     c2,0x04
+        brne    PC+4
+
+            ; " ° - - "
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "W",0
+            ret
+
+                mov     c2,a2
+                and     c2,0x01
+                brne    PC+4
+
+                PRINTF  LCD
+                .db "J",0
+                ret
+
+                PRINTF  LCD
+                .db "P",0
+                ret
+
+
+            ; " ° - ° "
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "R",0
+            ret
+
+                PRINTF  LCD
+                .db "L",0
+                ret
+
+        ; " ° ° "
+
+        mov     c2,a2
+        and     c2,0x0c
+        brne    PC+4
+        
+        PRINTF  LCD
+        .db "I",0
+        ret
+
+        mov     c2,a2
+        and     c2,0x04
+        brne    PC+10
+
+            ; " ° ° - "
+
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "U",0
+            ret
+
+
+                PRINTF  LCD
+                .db "F",0
+                ret
+
+          ; " ° ° ° "
+
+            mov     c2,a2
+            and     c2,0x03
+            brne    PC+4
+
+            PRINTF  LCD
+            .db "S",0
+            ret
+
+                mov     c2,a2
+                and     c2,0x01
+                brne    PC+4
+
+                PRINTF  LCD
+                .db "V",0
+                ret
+
+                PRINTF  LCD
+                .db "H",0
+                ret
+
